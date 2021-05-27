@@ -48,6 +48,15 @@ public class UserMain {
         return m.matches();
 
     }
+    public static boolean PasswordValidation(String password) {
+        String regexPassword = "[a-z A-Z]{8,}$";
+        Pattern p = Pattern.compile(regexPassword);
+        if (password == null){
+            return false;
+        }
+        Matcher m = p.matcher(password);
+        return m.matches();
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Registration System");
@@ -69,6 +78,8 @@ public class UserMain {
         String MobileNum = input.nextLine();
         System.out.println(mobileNumValidation(MobileNum));
 
-
+      System.out.println("please enter the Password");
+      String Password = input.nextLine();
+      System.out.println(PasswordValidation(Password));
     }
 }
