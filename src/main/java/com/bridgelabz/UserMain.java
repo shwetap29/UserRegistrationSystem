@@ -15,6 +15,7 @@ public class UserMain {
         return m.matches();
 
     }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Registration System");
         Scanner input = new Scanner(System.in);
