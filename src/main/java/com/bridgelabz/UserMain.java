@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 public class UserMain {
     public static boolean firstNameValidation(String FirstName){
-        String regex = "^[A-Z][a-z A-Z]{2,}$";
-        Pattern p = Pattern.compile(regex);
+        String regexFirstName = "^[A-Z][a-z A-Z]{2,}$";
+        Pattern p = Pattern.compile(regexFirstName);
         if (FirstName == null){
             return false;
         }
@@ -17,8 +17,8 @@ public class UserMain {
     }
 
       public static boolean lastNameValidation(String LastName){
-        String regex = "^[A-Z][a-z A-Z]{2,}$";
-        Pattern p = Pattern.compile(regex);
+        String regexLastName = "^[A-Z][a-z A-Z]{2,}$";
+        Pattern p = Pattern.compile(regexLastName);
         if (LastName == null){
             return false;
         }
@@ -26,7 +26,6 @@ public class UserMain {
         return m.matches();
 
     }
-
     public static boolean emailValidation(String Email){
         String regexEmail = "^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.][a-z]{2,3})*$";
         Pattern p = Pattern.compile(regexEmail);
@@ -38,7 +37,7 @@ public class UserMain {
 
     }
     public static boolean mobileNumValidation(String MobileNum ){
-        String regexMobileNum = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
+        String regexMobileNum = "^[9][1]\\s[6-9][0-9]{9}$";
         Pattern p = Pattern.compile(regexMobileNum);
         if (MobileNum == null){
             return false;
@@ -49,9 +48,9 @@ public class UserMain {
 
     }
     public static boolean PasswordValidation(String password) {
-        String regexPassword = "[a-z A-Z]{8,}$";
+        String regexPassword = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
         Pattern p = Pattern.compile(regexPassword);
-        if (password == null){
+        if ( password == null ){
             return false;
         }
         Matcher m = p.matcher(password);
