@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class UserMain {
     public static boolean firstNameValidation(String FirstName){
-        String regex = "^[A-Z]{1}[a-z A-Z]{2,}$";
+        String regex = "^[A-Z][a-z A-Z]{2,}$";
         Pattern p = Pattern.compile(regex);
         if (FirstName == null){
             return false;
@@ -17,7 +17,7 @@ public class UserMain {
     }
 
       public static boolean lastNameValidation(String LastName){
-        String regex = "^[A-Z]{1}[a-z A-Z]{2,}$";
+        String regex = "^[A-Z][a-z A-Z]{2,}$";
         Pattern p = Pattern.compile(regex);
         if (LastName == null){
             return false;
@@ -37,6 +37,17 @@ public class UserMain {
         return  m.matches();
 
     }
+    public static boolean mobileNumValidation(String MobileNum ){
+        String regexMobileNum = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
+        Pattern p = Pattern.compile(regexMobileNum);
+        if (MobileNum == null){
+            return false;
+        }
+        Matcher m =p.matcher(MobileNum);
+
+        return m.matches();
+
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Registration System");
@@ -53,6 +64,10 @@ public class UserMain {
         System.out.println("Please Enter your Email: ");
         String EmailID = input.nextLine();
         System.out.println(emailValidation(EmailID));
+
+        System.out.println("Please Enter the mobile number with country code 91: ");
+        String MobileNum = input.nextLine();
+        System.out.println(mobileNumValidation(MobileNum));
 
 
     }
